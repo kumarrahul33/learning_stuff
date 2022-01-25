@@ -11,6 +11,12 @@ int main(){
     string x,y;
     cin>>x;
     cin>>y;
+    int n=x.length(); 
+    int m=y.length();
+
+    //do this with proper explanation later with dp using the book's method
+    //weird array property file will help
+
     
     
 
