@@ -1,25 +1,12 @@
 #include<bits/stdc++.h>
 using namespace std;
 int main(){
-    
     #ifndef ONLINE_JUDGE
 
-    freopen("input.txt","r", stdin);
-    freopen("output.txt", "w", stdout);
+    freopen("/home/rahul/Code/C++/input.txt" , "r" , stdin);
+    freopen("/home/rahul/Code/C++/output.txt" , "w" , stdout);
 
     #endif
-    
-    // obtaining the list
-    int n;
-    cin >> n;
-
-    int a;
-    cin >> a;
-
-    if(a==n)
-        cout<<"first if"<<endl;
-    else if(a==1)
-        cout<<"second if"<<endl;
-
+    cout<<atan2(-1,-1)<<'\n'<<-M_PI/4 + M_PI;
 
 }

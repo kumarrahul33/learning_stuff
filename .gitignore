@@ -1,3 +1,7 @@
 competitive_programming/bin/longest_increasing_subseq.exe
 stack/stack1.exe
+.vscode
 *.exe
+*Zone.Identifier
+*.tar
+bin

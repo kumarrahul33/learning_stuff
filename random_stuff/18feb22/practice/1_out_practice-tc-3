@@ -1,0 +1,4 @@
+Error: User 0: Withdraw failed
+Final balances and statement:
+User 0: Balance = 0, num_deposits = 0, num_withdrawals = 0
+User 1: Balance = 100, num_deposits = 0, num_withdrawals = 0
