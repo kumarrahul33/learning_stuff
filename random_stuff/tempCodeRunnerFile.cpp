@@ -1,4 +1,4 @@
- cout<<arr[small1]<<" "<<arr[small2]<<'\n';
-         cout<<arr[large1]<<" "<<arr[large2]<<'\n';
-         cout<<"_______________________________________________________"<<endl;
-      
+// Function to find the count of integers
+// obtained by replacing '?' in a given
+// string such that formed integer
+// gives remainder 5 when it is divided by 13
