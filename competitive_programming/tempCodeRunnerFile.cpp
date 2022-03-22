@@ -1,1 +1,6 @@
-cout<<it->first<<" "<<it->second<<"\n
+int arr[n];
+    
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cin >> arr[i];
+    // }

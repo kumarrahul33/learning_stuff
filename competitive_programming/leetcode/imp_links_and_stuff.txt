@@ -1,0 +1,3 @@
+The following algorithm is the best solution (O(1)) for the question Longest_palindromic_substring 
+
+https://en.wikipedia.org/wiki/Longest_palindromic_substring#Manacher's_algorithm
