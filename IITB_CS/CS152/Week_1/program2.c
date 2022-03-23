@@ -3,7 +3,7 @@
 using namespace std;
 int main(){
     string fileName;
-    //cin >> fileName;
+    cin >> fileName;
     int arr[26];
     for (int i = 0; i < 26; i++)
     {
@@ -12,12 +12,13 @@ int main(){
     
 
     ifstream inFile;
-    inFile.open("text.txt");
+    inFile.open(fileName);
     
 
     char x;
 
-    while(inFile >> x){
+    while(inFile >> x)
+    {
         x = tolower(x);
         int asciiX = x;
         if(asciiX >= 97 && asciiX <=122){
