@@ -1,0 +1,2 @@
+QUERY_JOURNEY Gottingen 1100 Munich
+EXIT

@@ -3,6 +3,9 @@
 #include<cstring>
 #include "planner.h"
 using namespace std;
+#include <vector>
+
+int DICT_SIZE = 100;
 
 // this the dictionary defined specially for managing the journeys and their times
 
@@ -39,18 +42,9 @@ int Dictionary::hashValue(string key){
 
 struct Journey* Dictionary::get(string key){
     int pos = hashValue(key);
-    return &A[pos];
+    return A[pos];
 }
 
-/*
-void Dictionary::showAll(){
-    for (int i = 0; i < DICT_SIZE; i++)
-    {
-        cout << i << " " << A[i].key << " " << A[i].value << endl; 
-    }
-    
-}
-*/
 void insertElement(Journey* first, Journey* middle, Journey* end) {
     if (end == nullptr)
     {
@@ -70,13 +64,13 @@ bool Dictionary::put(struct Journey* j){
     
     //index at which the required journey is 
 
-    Journey* ptr = &A[hashValue(j->station_one)];
+    Journey* ptr = A[hashValue(j->station_one)];
     while (ptr->next != nullptr)
     {
         if ((ptr -> next) -> startTime >= j -> startTime )
         {
             insertElement(ptr,j,ptr->next);
-            return;
+            return true;
         }
            
         ptr = ptr->next;
@@ -90,12 +84,20 @@ bool Dictionary::put(struct Journey* j){
 
 
 Dictionary::Dictionary(){
-   A = new Journey[DICT_SIZE];
+    for (int i = 0; i < DICT_SIZE; i++)
+    {
+        Journey* temp = new Journey();
+        A.push_back(temp);
+    }
+    
 }
 
+/*
 int main() {
-    Journey j1 = {"jammu","kashmir", 1500, 1600};
+    Journey j1 = {"jammu","kashmir", 2100, 1600};
     Journey j2 = {"jammu", "kanpur", 1600, 1800};
+    Journey j5 = {"jammu","madarchod",1800,3000};
+    Journey j6 = {"jammu", "bsdchod", 1300,5000};
 
     Journey j3 = {"newyork", "delhi", 1200, 1800};
     Journey j4 ={"pathankot","gujrat", 1300, 1200};
@@ -103,12 +105,12 @@ int main() {
     Dictionary d;
     d.put(&j1);
     d.put(&j2);
-    d.put(&j3);
-    d.put(&j4);
+    d.put(&j5);
+    d.put(&j6);
 
-    Journey* ptr = d.get("newyork");
+    Journey* ptr = d.get("jammu");
 
-    for (int i = 0; i < 2; i++)
+    for (int i = 0; i < 5; i++)
     {
         ptr -> printJourney();
         ptr = ptr -> next;
@@ -116,6 +118,8 @@ int main() {
     
 
 }
+// implementing the Planner class
+*/
 
 
 

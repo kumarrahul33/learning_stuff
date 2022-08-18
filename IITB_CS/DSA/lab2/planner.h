@@ -3,11 +3,10 @@
 #define PLANNER_H
 #include<iostream>
 using namespace std;
-
-int total_routes;
+#include <vector>
 
 // Can change this value for debugging
-int DICT_SIZE = 100;
+
 
 struct Journey {
   // define suitable fields here
@@ -34,19 +33,27 @@ struct Journey {
   }
 
   void printJourney() {
-    cout << station_one << endl ;
+    cout << station_one << " " ;
     cout << station_two << endl;
     cout << startTime << endl;
     cout << endTime << endl;
     cout << next << endl;
     cout << endl;
   }
+
+  void printSoonestJourney() {
+    cout << startTime << endl;
+  }
+
+  void printStationOne() {
+    cout << startTime << " " << station_two<< endl;
+  }
 };
 
 class Dictionary {
  private:
   int N; // size of array A
-  struct Journey *A; // Array of dictionary entries
+  vector<Journey*> A; // Array of dictionary entries
 
  public:
 
@@ -70,35 +77,58 @@ class Dictionary {
 //planner
 struct Station {
   // define suitable fields here
-  string station_one;
+  string station_two;
   float time;
+
+  void printStation(){
+    cout << time << " " << station_two << endl;
+  }
 };
 
 
 struct Query{
   // define suitable fields here
+  string action;
   string station_one;
   string station_two;
   float time;
+  float endtime;
+
+  Query() {
+    action = "";
+    station_one = "";
+    station_two = "";
+    time = 0;
+    endtime = 0;
+  }
+
+  void printQuery(){
+    cout << action << endl;
+    cout << station_one << endl;
+    cout << station_two << endl;
+    cout << time << endl;
+    cout << endtime << endl;
+  }
 };
+
 
 class Planner { 
-  Dictionary routesDict;
+  public:
+    Dictionary* routesDict;
 
-  Planner() {
-  }
+    Planner();
 
-  bool addRoute(Journey j) {
-    //routesDict.add(j)
-  }
+    bool addRoute(Query* q); 
+      //routesDict.add(j)
+    
 
-  void query_station(string s){
-    //return routesdict.get(s)
-  }
+    void query_station(Query* q);
+      //return routesdict.get(s)
+    
+    
+    void query_journey(Query* q);
+
+    
   
-  void query_journey(Query q) {
-
-  }
-  
-};
+}; 
 #endif
