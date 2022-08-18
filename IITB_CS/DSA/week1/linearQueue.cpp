@@ -2,6 +2,11 @@
 #include "queue.h"
 
 template<>
+unsigned int DynamicQueue<int>::size(){
+    return tail - head;
+}
+
+template<>
 bool DynamicQueue<int>::isEmpty(){
     return head == tail;
 }
@@ -21,7 +26,8 @@ void DynamicQueue<int>::grow(){
     
 
     //pointing the T ptr to temp
-    //delete A;
+    delete A;
+    A = NULL;
     A = temp;
 }
 
@@ -43,7 +49,6 @@ void DynamicQueue<int>::QInsert(int x){
             temp[i-head] = A[i];
         }
 
-        //delete A;
         A = temp;
 
         tail = N-head;
@@ -52,6 +57,7 @@ void DynamicQueue<int>::QInsert(int x){
         A[tail] = x;   
     }
 
+    //queue not full from anywhere
     else {
         A[tail] = x;
         tail++;
@@ -64,9 +70,11 @@ template<>
 bool DynamicQueue<int>::QDelete(int* x){
     if (isEmpty()) return false;
     
+    //changing head of the queue to effectively delete the element from the queue and returning the element in the variable x.
     *x = A[head];
     A[head] = -1;
 
+    //updating the head
     head++;
     return true;
 }

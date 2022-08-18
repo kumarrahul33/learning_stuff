@@ -1,5 +1,6 @@
 #include<iostream>
 #include<string.h>
+using namespace std;
 
 
 #ifndef DICTIONARY_H
@@ -38,6 +39,8 @@ class Dictionary {
 
   // Remove the given key; return true if success, false if failure (given key not present)
   bool remove(char key[]);
+
+  void showAll();
 };
 
 #endif

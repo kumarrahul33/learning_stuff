@@ -1,4 +1,6 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<cmath>
+#include<cstring>
 #include "dictionary.h"
 using namespace std;
 
@@ -51,18 +53,29 @@ struct Entry* Dictionary::get(char key[]){
 
         if(pos >= DICT_SIZE) return NULL;
     }
+    //cout << pos << endl;
     return &A[pos];
 }
 
-bool Dictionary::put(struct Entry e){
-    if (findFreeIndex(e.key) == -1) return false;
+
+void Dictionary::showAll(){
+    for (int i = 0; i < DICT_SIZE; i++)
+    {
+        cout << i << " " << A[i].key << " " << A[i].value << endl; 
+    }
     
-    int pos = findFreeIndex(e.key);
+}
+
+bool Dictionary::put(struct Entry e){
+    char objKey[DICT_SIZE];
+    strcpy(objKey, e.key);
+    if (findFreeIndex(objKey) == -1) return false;
+    
+    int pos = findFreeIndex(objKey);
 
     A[pos].key = e.key;
     A[pos].value = e.value;
-    cout << e.key << endl;
-    cout << e.value << endl;
+
     return true;
 }
 
@@ -79,25 +92,33 @@ Dictionary::Dictionary(){
     A = new Entry[64];
     for (int i = 0; i < 64; i++)
     {
-        char temp_str[32] = "\0";
+        char temp_str[32] = "NULL";
         Entry temp = {temp_str,-1};
         A[i] = temp;
     }
     
 }
 /*
-
 int main(){
     Dictionary d;
     char inp[32] = "jaychutiya";
-    cout << d.hashValue(inp);
-    Entry temp = {inp, 69}; 
+    cout << d.hashValue(inp) << endl;
+    Entry temp = {inp, 69};
+    d.put(temp);
+
+    char inp1[32] = "rahul";
+    cout << d.hashValue(inp1) << endl;
+    temp = {inp1, 469};
+    d.put(temp);
+
+    d.showAll();
+    
     //cout << d.hashValue(inp)<<endl;
     //cout << d.findFreeIndex(inp);
-    //cout << d.put(temp);
-    cout << d.get(inp) ;
+
 }
 */
+
 
 
 

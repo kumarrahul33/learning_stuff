@@ -50,8 +50,8 @@
 
 // While testing, you can change the constant values given below if you want
 
-#define CONST_GROWTH 1000
-#define INIT_SIZE 1000
+#define CONST_GROWTH 5
+#define INIT_SIZE 10
 
 template <typename T> class DynamicQueue {
 private:

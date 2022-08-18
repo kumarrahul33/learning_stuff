@@ -33,7 +33,9 @@ void dictionaryHandler(Dictionary &dictionary){
       cin >> inputKey;
       int value;
       cin >> value;
-      Entry data;
+
+      dictionary.showAll();
+      /*Entry data;
       strcpy(data.key,inputKey);
       data.value  = value;
       int hashValueData = dictionary.hashValue(data.key);
@@ -46,7 +48,7 @@ void dictionaryHandler(Dictionary &dictionary){
       }
       else{
         cout << "NO Available space " << endl;
-      }
+      }*/
     }
 
     // DEL <key>
@@ -66,7 +68,6 @@ void dictionaryHandler(Dictionary &dictionary){
       char inputKey[32];
       cin >> inputKey;
       Entry *entry = dictionary.get(inputKey);
-      cout << entry[30].value;
       if(entry != NULL){
         cout << inputKey << " has value: " << entry->value << endl;
       }
@@ -88,7 +89,6 @@ void automatic()
   char word[32];
   while(cin >> word){
     int hash = dictionary.hashValue(word);
-    cout << word << " " << hash << endl;
     frequency[hash]++;
   }
 
