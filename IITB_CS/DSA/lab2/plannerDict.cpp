@@ -65,6 +65,8 @@ bool Dictionary::put(struct Journey* j){
     //index at which the required journey is 
 
     Journey* ptr = A[hashValue(j->station_one)];
+    //cout << hashValue(j->station_one) << endl;
+    //cout << ptr <<endl;
     while (ptr->next != nullptr)
     {
         if ((ptr -> next) -> startTime >= j -> startTime )
@@ -96,8 +98,8 @@ Dictionary::Dictionary(){
 int main() {
     Journey j1 = {"jammu","kashmir", 2100, 1600};
     Journey j2 = {"jammu", "kanpur", 1600, 1800};
-    Journey j5 = {"jammu","madarchod",1800,3000};
-    Journey j6 = {"jammu", "bsdchod", 1300,5000};
+    Journey j5 = {"jammu","maharashtra",1800,3000};
+    Journey j6 = {"jammu", "bandra", 1300,5000};
 
     Journey j3 = {"newyork", "delhi", 1200, 1800};
     Journey j4 ={"pathankot","gujrat", 1300, 1200};

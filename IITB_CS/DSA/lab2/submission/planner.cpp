@@ -344,7 +344,7 @@ void interactive() {
 }
 
 int main() {
-    automatic();
+    interactive();
 }
 /*
 
